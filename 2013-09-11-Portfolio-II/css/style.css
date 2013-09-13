@@ -1,0 +1,63 @@
+@import url(http://fonts.googleapis.com/css?family=Cinzel+Decorative);
+@import url(http://fonts.googleapis.com/css?family=Kavoon);
+
+body {
+background-color: yellow;
+width: 960px;
+margin: 0 auto;
+
+}
+
+header > h1 {
+font-family: 'Cinzel Decorative', cursive;
+
+
+background: red;
+width:      200px;
+}
+#par1
+{
+  float: left;
+
+  border: 1px dashed red;
+font-family: 'Cinzel Decorative', cursive;
+font-size: 25px;
+padding-top: 50px;
+padding-bottom: 30px;
+
+
+}
+
+#par2
+{
+  float: left;
+
+  border: 1px dashed red;
+font-family: 'Kavoon', cursive;
+font-size: 20px;
+padding-top: 20px;
+padding-bottom: 30px;
+
+
+}
+.clear
+{
+  float: none;
+  clear: both;
+
+}
+section > h2
+{
+  font-size: 25px;
+}
+ul
+{
+  list-style: outside circle;
+
+}
+
+p {
+
+display: inline;
+
+}
