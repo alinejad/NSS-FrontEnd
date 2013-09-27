@@ -1,5 +1,6 @@
 @import 'colors';
 @import 'fonts';
+@import 'functions';
 @import 'header';
 @import 'nav';
 @import 'content';
@@ -7,23 +8,23 @@
 
 #main
 {
-  width:960;
+  width: 960px;
   margin: 0px auto;
 }
 
-.class
+.clear
 {
   clear: both;
 }
+
 a
 {
   text-decoration: none;
   color: $tesla_red;
 
-
   &:hover
   {
     text-decoration: underline;
-    color: desaturate($tesla_red, 20%);
+    color: desaturate($tesla_red, 40%);
   }
 }
