@@ -1,0 +1,59 @@
+!!! 5
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+%head
+  %meta{charset: "utf-8"}
+  %meta{name: "viewport", content: "width=device-width"}
+  %title Foundation 4
+  %link{rel: "stylesheet", href: "css/normalize.css"}
+  %link{rel: "stylesheet", href: "css/foundation.css"}
+  %link{rel: "stylesheet", href: "css/app.css"}
+  %script{src: "js/vendor/custom.modernizr.js"}
+%body
+  .wrap
+    .row
+      .small-12.columns
+        %h1 Chyld Stock Market Inc.
+    .row
+      .small-2.columns
+        %input#setfound.button.small.radius{type: 'text', placeholder: 'Set Found'}
+      .small-2.columns
+        %input#set.button.small.success.radius{type: 'button', value: 'Set'}
+      .small-8.columns
+    .row
+      .small-2.columns
+        %input#Symbol.button.small.radius{type: 'text', placeholder: 'Symbol'}
+      .small-2.columns
+        %input#quantity.button.small.radius{type: 'text', placeholder: 'Quantity'}
+      .small-2.columns
+        %input#Symbol.button.small.radius{type: 'button', value: 'Buy'}
+      .small-6.columns
+    .row
+      .small-4.columns
+        %h5 Balanace:
+      .small-8.columns
+    .row
+      .small-9.columns
+        %h4 Stock List:
+      .small-2.columns
+        %input#interval_Button.button.small.radius{type: 'text', placeholder: 'interval Time'}
+      .small-1.columns
+        %input#set.button.small.success.radius{type: 'button', value: 'Set'}
+    .row
+      .small-12.columns
+        %table#items
+          %tr
+            %th Name
+            %th Symbol
+            %th Purchase price
+            %th Curent Value
+            %th Quantity
+            %th Total
+
+
+  %script{src: 'js/vendor/jquery-1.10.2.js'}
+  %script{src: 'js/vendor/foundation.min.js'}
+  %script{src: 'js/vendor/underscore.js'}
+  %script{src: 'js/vendor/moment.min.js'}
+  %script{src: 'https://cdn.firebase.com/v0/firebase.js'}
+  %script{src: 'js/app/app.js'}

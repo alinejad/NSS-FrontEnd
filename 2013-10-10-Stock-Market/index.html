@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset='utf-8'>
+  <meta content='width=device-width' name='viewport'>
+  <title>Foundation 4</title>
+  <link href='css/normalize.css' rel='stylesheet'>
+  <link href='css/foundation.css' rel='stylesheet'>
+  <link href='css/app.css' rel='stylesheet'>
+  <script src='js/vendor/custom.modernizr.js'></script>
+</head>
+<body>
+  <div class='wrap'>
+    <div class='row'>
+      <div class='small-12 columns'>
+        <h1>Chyld Stock Market Inc.</h1>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='small-2 columns'>
+        <input class='button small radius' id='setfound' placeholder='Set Found' type='text'>
+      </div>
+      <div class='small-2 columns'>
+        <input class='button small success radius' id='set' type='button' value='Set'>
+      </div>
+      <div class='small-8 columns'></div>
+    </div>
+    <div class='row'>
+      <div class='small-2 columns'>
+        <input class='button small radius' id='Symbol' placeholder='Symbol' type='text'>
+      </div>
+      <div class='small-2 columns'>
+        <input class='button small radius' id='quantity' placeholder='Quantity' type='text'>
+      </div>
+      <div class='small-2 columns'>
+        <input class='button small radius' id='Symbol' type='button' value='Buy'>
+      </div>
+      <div class='small-6 columns'></div>
+    </div>
+    <div class='row'>
+      <div class='small-4 columns'>
+        <h5>Balanace:</h5>
+      </div>
+      <div class='small-8 columns'></div>
+    </div>
+    <div class='row'>
+      <div class='small-9 columns'>
+        <h4>Stock List:</h4>
+      </div>
+      <div class='small-2 columns'>
+        <input class='button small radius' id='interval_Button' placeholder='interval Time' type='text'>
+      </div>
+      <div class='small-1 columns'>
+        <input class='button small success radius' id='set' type='button' value='Set'>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='small-12 columns'>
+        <table id='items'>
+          <tr>
+            <th>Name</th>
+            <th>Symbol</th>
+            <th>Purchase price</th>
+            <th>Curent Value</th>
+            <th>Quantity</th>
+            <th>Total</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src='js/vendor/jquery-1.10.2.js'></script>
+  <script src='js/vendor/foundation.min.js'></script>
+  <script src='js/vendor/underscore.js'></script>
+  <script src='js/vendor/moment.min.js'></script>
+  <script src='https://cdn.firebase.com/v0/firebase.js'></script>
+  <script src='js/app/app.js'></script>
+</body>
