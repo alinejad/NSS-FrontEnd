@@ -1,55 +1,99 @@
-// 'use strict';
+'use strict';
 
-// // Firebase Schema
-// var Δdb;
+$(document).ready(initialize);
 
-// // Local Schema (defined in keys.js)
+function initialize(fn, flag){
+  if(!canRun(flag)) {return;}
 
-// $(document).ready(initialize);
+  $(document).foundation();
+  $('#calculate').click(clickCalculate);
+  $('#history').on('click', '.delete', clickDelete);
+  $('#sum').click(clickSum);
+  $('#product').click(clickProduct);
+  $('#filter-negative').click(clickFilterNegative);
+  $('#filter-positive').click(clickFilterPositive);
+}
 
-// function initialize(){
-//   $(document).foundation();
-//   Δdb = new Firebase(db.keys.firebase);
-//   initMap(36, -86, 5);
-// }
+// -------------------------------------------------------------------- //
+// -------------------------------------------------------------------- //
+// -------------------------------------------------------------------- //
 
-// // -------------------------------------------------------------------- //
-// // -------------------------------------------------------------------- //
-// // -------------------------------------------------------------------- //
+function clickCalculate(){
+  var op1 = getValue('#op1');
+  var op2 = getValue('#op2');
+  var operator = getValue('#operator');
+  var computation = op1 + operator + op2;
+  var result = eval(computation);
+  htmlUpdateResult(result);
+  htmlAddToPaperTrail(op1, operator, op2, result);
+}
 
-// function initMap(lat, lng, zoom){
-//   var mapOptions = {center: new google.maps.LatLng(lat, lng), zoom: zoom, mapTypeId: google.maps.MapTypeId.ROADMAP};
-//   db.map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-// }
+function clickDelete(){
+  var $li = $(this).parent();
+  $li.remove();
+}
 
-// // -------------------------------------------------------------------- //
-// // -------------------------------------------------------------------- //
-// // -------------------------------------------------------------------- //
+function clickSum(){
+  var $results = $('span.result');
+  var numbers = _.map($results, function(span){return parseFloat($(span).text());});
+  var sum = _.reduce(numbers, function(memo, num){ return memo + num; }, 0);
+  htmlUpdateResult(sum);
+}
 
-// function getValue(selector, fn){
-//   var value = $(selector).val();
-//   value = value.trim();
-//   $(selector).val('');
+function clickProduct(){
+  var $results = $('span.result');
+  var numbers = _.map($results, function(span){return parseFloat($(span).text());});
+  var product = _.reduce(numbers, function(memo, num){ return memo * num; }, 1);
+  htmlUpdateResult(product);
+}
 
-//   if(fn){
-//     value = fn(value);
-//   }
+function clickFilterNegative(){
+  $('span.result:contains("-")').parent().remove();
+}
 
-//   return value;
-// }
+function clickFilterPositive(){
+  $('span.result').not(':contains("-")').parent().remove();
+}
 
-// function parseUpperCase(string){
-//   return string.toUpperCase();
-// }
+// -------------------------------------------------------------------- //
+// -------------------------------------------------------------------- //
+// -------------------------------------------------------------------- //
 
-// function parseLowerCase(string){
-//   return string.toLowerCase();
-// }
+function htmlUpdateResult(result){
+  $('#result').val(result);
+}
 
-// function formatCurrency(number){
-//   return '$' + number.toFixed(2);
-// }
+function htmlAddToPaperTrail(op1, operator, op2, result){
+  var $li = $('<li>');
+  var spans = '<span class="op1">' + op1 + '</span><span class="operator">' + operator + '</span><span class="op2">' + op2 + '</span><span class="equal">=</span><span class="result">' + result + '</span><span class="delete">X</span>';
+  var $spans = $(spans);
+  $li.append($spans);
+  $('#history').prepend($li);
+}
 
-// // -------------------------------------------------------------------- //
-// // -------------------------------------------------------------------- //
-// // -------------------------------------------------------------------- //
+// -------------------------------------------------------------------- //
+// -------------------------------------------------------------------- //
+// -------------------------------------------------------------------- //
+
+function getValue(selector, fn){
+  var value = $(selector).val();
+  value = value.trim();
+  $(selector).val('');
+
+  if(fn){
+    value = fn(value);
+  }
+
+  return value;
+}
+
+function canRun(flag){
+  var isQunit = $('#qunit').length > 0;
+  var isFlag = flag !== undefined;
+  var value = isQunit && isFlag || !isQunit;
+  return value;
+}
+
+// -------------------------------------------------------------------- //
+// -------------------------------------------------------------------- //
+// -------------------------------------------------------------------- //
