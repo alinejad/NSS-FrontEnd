@@ -1,0 +1,42 @@
+extends ../template/layout
+
+block content
+  .row
+    .small-12.columns
+      h1.subheader Movies!
+    .small-2.columns
+      a.button.tiny.radius.expand(href="/") Home
+      a.button.tiny.radius.expand(href="/movies/new") New
+    .small-10.columns
+  .row
+    .small-12.columns
+      - var movie = movies[0]
+      if movie
+        table#movies
+          thead: tr
+            each value, property in movie
+              unless value instanceof Function || property === 'gross'
+                if property === 'numTheaters'
+                  th number of theaters
+                else
+                  th= property
+            th gross per theater
+            th gross
+            th
+          tbody
+            each movie in movies
+              tr
+                each value, property in movie
+                  unless value instanceof Function || property === 'gross'
+                    if property === 'image'
+                      td: image(src=value)
+                    else if property === 'color'
+                      td(style='background-color:#{movie.color}')
+                    else
+                      td=value
+                td= movie.grossPerTheaterUS()
+                td= movie.grossUSD()
+                td
+                  form(action='/movies/#{movie.title}', method='post')
+                    input(type='hidden', name='_method', value='delete')
+                    button.small.radius.alert(type='submit') Delete

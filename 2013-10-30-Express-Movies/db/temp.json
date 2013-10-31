@@ -1,0 +1,38 @@
+[
+  {
+    "title":"Jaws",
+    "image":"http://upload.wikimedia.org/wikipedia/en/e/eb/JAWS_Movie_poster.jpg",
+    "color":"blue",
+    "rated":"R",
+    "studio":"Universal Studios",
+    "gross": 450384983,
+    "numTheaters": 77
+  },
+  {
+    "title":"Shawshank Redemption",
+    "image":"http://ecx.images-amazon.com/images/I/416WKnrpx5L._SL500_AA300_.jpg",
+    "color":"orange",
+    "rated":"R",
+    "studio":"Sony Pictures Classic",
+    "gross": 98837362,
+    "numTheaters": 63
+  },
+  {
+    "title":"Usual Suspects",
+    "image":"http://www.supernaturalwiki.com/images/0/0e/The_Usual_Suspects_Movie_Poster.jpg",
+    "color":"black",
+    "rated":"R",
+    "studio":"MGM Studios",
+    "gross": 9847388,
+    "numTheaters": 51
+  },
+  {
+    "title":"The Sandlot",
+    "image":"http://images.moviepostershop.com/the-sandlot-movie-poster-1993-1020257989.jpg",
+    "color":"green",
+    "rated":"PG",
+    "studio":"Disney Films",
+    "gross": 9847390,
+    "numTheaters": 48
+  }
+]

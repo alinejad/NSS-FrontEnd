@@ -1,0 +1,17 @@
+extends ../template/layout
+
+block content
+  h1 To Do
+  a(href= '/') home
+  - var listItem = list[0]
+  if listItem
+    table #list-item
+    thead: tr
+      each value,property in list
+        th= property
+    tbody
+      each listItem, index in list
+        tr
+          each value, property in listItem
+            td= value
+

@@ -1,0 +1,18 @@
+extends ../template/layout
+include ../mixins/form-helper
+
+block content
+  .row
+    .small-12.columns
+      h1.subheader Add a Movie
+  .row
+    .small-12.columns
+      form(action='/movies',method='post')
+        mixin field('title', 'Title', 'Jaws', true);
+        mixin field('image', 'Image', 'Jawsposter.jpg');
+        mixin field('color', 'Color', 'Blue');
+        mixin field('rated', 'Rated', 'pg-13');
+        mixin field('studio', 'Studio', 'Fox');
+        mixin field('gross', 'Gross', '222223');
+        mixin field('numTheaters', 'Number of Theaters', '33');
+        button.small.radius.alert(type='submit') Add Movie
