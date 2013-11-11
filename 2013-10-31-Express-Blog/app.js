@@ -1,13 +1,18 @@
+// model definitions
+require('./models/post');
+
+
 // express application
 var home = require('./routes/home');
-var post = require('./routes/posts');
-
+var posts = require('./routes/posts');
 // modules
 var express = require('express');
 var http = require('http');
 var path = require('path');
 var less = require('express-less');
+var mongoose = require('mongoose');
 var app = express();
+mongoose.connect('mongodb://localhost/blogger'); //tells node where my server is
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -28,6 +33,13 @@ if ('development' == app.get('env')) {
 
 // route definitions
 app.get('/', home.index);
+app.get('/posts', posts.index); //shows all the posts in the json object
+app.get('/posts/new', posts.new); //sends data to app.post
+app.post('/posts', posts.create); //id is created here
+app.get('/posts/:id/edit', posts.edit);
+app.put('/posts/:id', posts.update);
+app.get('/posts/:id', posts.show); //find the id and then show it
+app.delete('/posts/:id', posts.delete); //find the id and then delete it
 
 // start server
 http.createServer(app).listen(app.get('port'), function(){
